@@ -134,10 +134,10 @@ public:
         return AccountInfoDouble(ACCOUNT_EQUITY);
     }
     
-    // Get free margin
+    // Get free margin - FIXED: Using correct constant for MT5
     double GetFreeMargin()
     {
-        return AccountInfoDouble(ACCOUNT_FREEMARGIN);
+        return AccountInfoDouble(ACCOUNT_MARGIN_FREE);
     }
 };
 
