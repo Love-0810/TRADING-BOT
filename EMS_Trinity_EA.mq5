@@ -84,7 +84,7 @@ int OnInit()
     msnr.Init(Symbol(), HigherTimeframe, MidTimeframe);
     engulfing.Init(Symbol(), HigherTimeframe);
     smc.Init(Symbol(), MidTimeframe, ExecutionTimeframe);
-    risk.Init(AccountBalance(), RiskPercent);
+    risk.Init(AccountInfoDouble(ACCOUNT_BALANCE), RiskPercent);
     
     if(EnableLogging)
         Print("=== EMS Trinity EA Initialized ===");
@@ -339,17 +339,4 @@ void OnDeinit(const int reason)
 {
     if(EnableLogging)
         Print("=== EMS Trinity EA Deinitialized - Reason: ", reason, " ===");
-}
-
-//+------------------------------------------------------------------+
-// OnStart Function (for script testing)
-//+------------------------------------------------------------------+
-void OnStart()
-{
-    Print("EMS Trinity EA loaded successfully");
-    Print("Higher Timeframe: ", EnumToString(HigherTimeframe));
-    Print("Mid Timeframe: ", EnumToString(MidTimeframe));
-    Print("Execution Timeframe: ", EnumToString(ExecutionTimeframe));
-    Print("Risk Per Trade: ", RiskPercent, "%");
-    Print("Minimum RR: ", MinRiskReward, ":1");
 }
